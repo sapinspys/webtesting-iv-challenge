@@ -19,7 +19,7 @@ server.use(function(req, res, next) {
 
 // Endpoints
 server.get('/', async (req, res) => {
-  res.status(200).json({ api: 'up' });
+  res.status(200).json({ message: 'Welcome to Web Testing IV!' })
 });
 
 // Non-Existant Route MW:
