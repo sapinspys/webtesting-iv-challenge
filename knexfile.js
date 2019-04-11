@@ -9,7 +9,7 @@ module.exports = {
     },
     useNullAsDefault: true,
     migrations: {
-      directry: './data/migrations'
+      directory: './data/migrations'
     },
     seeds: {
       directory: './data/seeds'
