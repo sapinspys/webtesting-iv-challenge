@@ -3,7 +3,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 
 // Router Imports:
-const authRouter = require("../auth/auth-router.js");
+const authRouter = require("../routers/auth-router.js");
 
 const server = express();
 

@@ -9,24 +9,16 @@ router.post("/register", async (req, res) => {
   let credentials = req.body;
 
   try {
-    if (
-      credentials.username &&
-      credentials.password &&
-      credentials.department
-    ) {
+    if (credentials.username && credentials.password) {
       const hash = bcrypt.hashSync(credentials.password, 14);
       credentials.password = hash;
 
       const newUser = await Users.add(credentials);
-      res
-        .status(201)
-        .json({ message: "Registration successful" });
+      res.status(201).json({ message: "Registration successful" });
     } else {
-      res
-        .status(400)
-        .json({
-          message: "Please include a username and password"
-        });
+      res.status(400).json({
+        message: "Please include a username and password"
+      });
     }
   } catch (error) {
     res.status(500).json({
@@ -50,16 +42,12 @@ router.put("/login", async (req, res) => {
           user: foundUser.username
         });
       } else {
-        res
-          .status(401)
-          .json({
-            error: "The password you entered is incorrect, please try again."
-          });
+        res.status(401).json({
+          error: "The password you entered is incorrect, please try again."
+        });
       }
     } else {
-      res
-        .status(400)
-        .json({ error: "Please include a username and password" });
+      res.status(400).json({ error: "Please include a username and password" });
     }
   } catch (error) {
     res.status(500).json(error);
