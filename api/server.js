@@ -2,7 +2,8 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 
-// const model = require('../model/modelModel.js');
+// Router Imports:
+const authRouter = require("../auth/auth-router.js");
 
 const server = express();
 
@@ -21,6 +22,8 @@ server.use(function(req, res, next) {
 server.get('/', async (req, res) => {
   res.status(200).json({ message: 'Welcome to Web Testing IV!' })
 });
+
+server.use("/api/auth", authRouter);
 
 // Non-Existant Route MW:
 server.use(function(req, res) {
