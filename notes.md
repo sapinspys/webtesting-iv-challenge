@@ -14,6 +14,6 @@ window => global
 
 ## new tools 
 
-cross-env = npm pack. used to abstract away OS differenes setting environment variables
+__cross-env__ => npm pack. used to abstract away OS differenes setting environment variables
 
-DB_ENV=testing
+__DB_ENV=testing__ =>
