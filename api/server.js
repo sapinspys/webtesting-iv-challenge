@@ -10,9 +10,21 @@ server.use(express.json());
 server.use(helmet());
 server.use(cors());
 
+// Logger MW:
+server.use(function(req, res, next) {
+  console.log(`[${new Date().toISOString()}] ${req.method} to ${req.url}`);
 
+  next();
+});
+
+// Endpoints
 server.get('/', async (req, res) => {
   res.status(200).json({ api: 'up' });
+});
+
+// Non-Existant Route MW:
+server.use(function(req, res) {
+  res.status(404).send("Turn back, route not found.");
 });
 
 
